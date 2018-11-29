@@ -36,7 +36,7 @@ public class NvidiaSmiService
                         "nvidia-smi",
                         "--query-gpu=name,pci.bus,temperature.gpu,fan.speed," +
                                 "clocks.max.sm,clocks.max.memory",
-                        "--format=csv,nounits");
+                        "--format=csv,nounits,noheader");
         try {
             final Process process = processBuilder.start();
             try (final InputStream inputStream = process.getInputStream()) {
@@ -78,7 +78,7 @@ public class NvidiaSmiService
                     new Gpu.Builder()
                             .setId(gpuId)
                             .setName(segments[0])
-                            .setBusId(Integer.valueOf(segments[1], 16))
+                            .setBusId(Integer.decode(segments[1]))
                             .setTemp(toInt(segments[2]))
                             .setFan(toInt(segments[3]))
                             .setClocks(
