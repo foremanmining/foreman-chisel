@@ -15,7 +15,7 @@ Chisel is currently only being leveraged by the Foreman integration with nvOC.  
 The following endpoints are exposed:
 
 ```
-http://192.168.1.3:42069/stats/gpus
+/stats/gpus
 ```
 
 That endpoint returns a response formatted as follows (the statistics will be different depending on your mining configuration):
