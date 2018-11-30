@@ -33,10 +33,17 @@ public class NvidiaSmiService
         final List<Gpu> gpus = new LinkedList<>();
         final ProcessBuilder processBuilder =
                 new ProcessBuilder(
-                        "nvidia-smi",
-                        "--query-gpu=name,pci.bus,temperature.gpu,fan.speed," +
-                                "clocks.max.sm,clocks.max.memory",
-                        "--format=csv,nounits,noheader");
+                        new SmiCommandBuilder()
+                                .queryName()
+                                .queryPciBus()
+                                .queryGpuTemperature()
+                                .queryFanSpeed()
+                                .queryCoreClock()
+                                .queryMemoryClock()
+                                .csv()
+                                .nounits()
+                                .noheader()
+                                .toCommand());
         try {
             final Process process = processBuilder.start();
             try (final InputStream inputStream = process.getInputStream()) {
