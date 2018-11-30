@@ -5,8 +5,8 @@ export CHISEL_HOME=$(cd `dirname $0`/..; pwd)
 # Configures Java
 setup_java() {
     JAVA=$(command -v java)
-    if [ -z "$JAVA" ]; then
-        if [ -x "$JAVA_HOME/bin/java" ]; then
+    if [[ -z "$JAVA" ]]; then
+        if [[ -x "$JAVA_HOME/bin/java" ]]; then
             JAVA="$JAVA_HOME/bin/java"
         fi
 
@@ -17,7 +17,9 @@ setup_java() {
     fi
 
     # JVM parameters
-    JVM_PARAMS="-Dspring.config.location=$CHISEL_HOME/conf/application.properties"
+    JVM_PARAMS="-Dlogging.config=$CHISEL_HOME/etc/logback.xml"
+    JVM_PARAMS+=" -DLOG_LOCATION=$CHISEL_HOME/logs"
+    JVM_PARAMS+=" -Dspring.config.location=$CHISEL_HOME/conf/application.properties"
 }
 
 # Application status
@@ -40,10 +42,10 @@ start() {
 
         echo -n "Starting chisel..."
 
-        exec $JAVA \
+        exec ${JAVA} \
             -jar \
-            $JVM_PARAMS \
-            $CHISEL_HOME/lib/chisel-application*.jar &
+            ${JVM_PARAMS} \
+            ${CHISEL_HOME}/lib/chisel-application*.jar &
 
         echo "started(`pgrep -f 'java.*chisel'`)"
     fi
@@ -55,7 +57,7 @@ stop() {
     pkill -f 'java.*chisel'
 }
 
-if [ ! -z $1 ]; then
+if [[ ! -z $1 ]]; then
     case $1 in
         "start")
             start

@@ -17,11 +17,20 @@
         <fileSet>
             <directory>${project.basedir}/bin</directory>
             <outputDirectory>bin</outputDirectory>
+            <directoryMode>755</directoryMode>
             <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/conf</directory>
             <outputDirectory>conf</outputDirectory>
+            <directoryMode>755</directoryMode>
+            <fileMode>644</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/etc</directory>
+            <outputDirectory>etc</outputDirectory>
+            <directoryMode>755</directoryMode>
+            <fileMode>644</fileMode>
         </fileSet>
         <fileSet>
             <directory>.</directory>
@@ -29,7 +38,8 @@
             <excludes>
                 <exclude>*/**</exclude>
             </excludes>
-            <fileMode>666</fileMode>
+            <directoryMode>755</directoryMode>
+            <fileMode>644</fileMode>
         </fileSet>
         <fileSet>
             <directory>${project.build.directory}</directory>
@@ -37,6 +47,7 @@
             <includes>
                 <include>chisel-application*.jar</include>
             </includes>
+            <directoryMode>755</directoryMode>
         </fileSet>
     </fileSets>
 </assembly>

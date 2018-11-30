@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 /**
  * A {@link StatsController} provides an HTTP API endpoint that returns
@@ -43,7 +41,7 @@ public class StatsController {
             value = "/gpus",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, List<Gpu>> getGpus() {
-        return Collections.singletonMap("gpus", this.service.getGpuStats());
+    public List<Gpu> getGpus() {
+        return this.service.getGpuStats();
     }
 }
