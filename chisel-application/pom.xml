@@ -64,8 +64,10 @@
                         <descriptor>assembly/assembly.xml</descriptor>
                     </descriptors>
                     <finalName>
-                        ${project.artifactId}-${project.version}
+                        foreman-chisel-${project.version}
                     </finalName>
+                    <finalName>foreman-chisel-${project.version}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>
