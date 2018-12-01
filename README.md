@@ -68,9 +68,7 @@ That endpoint returns a response formatted as follows (the statistics will be di
 
 ## Building ##
 
-To build the entire foreman-chisel repository:
-
-From the top level of the repository:
+To build chisel, from the top level of the repository:
 
 ```sh
 $ mvn clean install
