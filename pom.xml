@@ -4,10 +4,30 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
     <groupId>mn.foreman</groupId>
     <artifactId>foreman-chisel</artifactId>
     <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>2666cfb367e1-releases</name>
+            <url>https://artifactory.foreman.mn/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>2666cfb367e1-snapshots</name>
+            <url>https://artifactory.foreman.mn/artifactory/libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <modules>
         <module>chisel-application</module>
@@ -15,4 +35,37 @@
         <module>chisel-service</module>
         <module>chisel-service-smi</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+
+        <commons-cli.version>2.6</commons-cli.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>mn.foreman</groupId>
+                <artifactId>chisel-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mn.foreman</groupId>
+                <artifactId>chisel-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mn.foreman</groupId>
+                <artifactId>chisel-service-smi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-cli.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
