@@ -189,6 +189,17 @@ public class Gpu {
         }
 
         /**
+         * Sets the fan.
+         *
+         * @param fan The fan.
+         *
+         * @return This builder instance.
+         */
+        public Builder setFan(final String fan) {
+            return setFan(Integer.parseInt(fan));
+        }
+
+        /**
          * Sets the id.
          *
          * @param id The id.
@@ -222,6 +233,17 @@ public class Gpu {
         public Builder setTemp(final int temp) {
             this.temp = temp;
             return this;
+        }
+
+        /**
+         * Sets the temp.
+         *
+         * @param temp The temp.
+         *
+         * @return This builder instance.
+         */
+        public Builder setTemp(final String temp) {
+            return setTemp(Integer.parseInt(temp));
         }
     }
 }

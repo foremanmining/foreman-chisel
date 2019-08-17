@@ -20,6 +20,10 @@ setup_java() {
     JVM_PARAMS="-Dlogging.config=$CHISEL_HOME/etc/logback.xml"
     JVM_PARAMS+=" -DLOG_LOCATION=$CHISEL_HOME/logs"
     JVM_PARAMS+=" -Dspring.config.location=$CHISEL_HOME/conf/application.properties"
+
+    [[ -d /hive ]] && ACTIVE_PROFILE="hive" || ACTIVE_PROFILE="smi"
+
+    JVM_PARAMS+=" -Dspring.profiles.active=${ACTIVE_PROFILE}"
 }
 
 # Application status

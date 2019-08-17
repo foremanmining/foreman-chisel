@@ -25,6 +25,10 @@
         </dependency>
         <dependency>
             <groupId>mn.foreman</groupId>
+            <artifactId>chisel-service-hive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mn.foreman</groupId>
             <artifactId>chisel-service-smi</artifactId>
         </dependency>
 
