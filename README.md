@@ -8,7 +8,7 @@
 
 Chisel is an open-source Java application that will extract GPU-specific metrics and expose them via an HTTP API.  This application aims to provide a mechanism for supplementing some of the lackluster miner APIs that often don't expose GPU statistics, thus enabling Foreman to consistently report mining metrics across all miners.
 
-Chisel is currently only being leveraged by the Foreman integration with nvOC.  It will, however, be expanded upon, with the intention of adding support for non-nvOC and Windows environments.
+Chisel is currently being leveraged by the Foreman integration with nvOC, HiveOS, and Linux.  It will be expanded upon, with the intention of adding support for Windows environments.
 
 #### Endpoints ####
 
