@@ -1,5 +1,8 @@
 package mn.foreman.chisel.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -42,6 +45,27 @@ public class Gpu {
         this.name = builder.name;
         this.processes = new ArrayList<>(builder.processes);
         this.temp = builder.temp;
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        boolean equals = false;
+        if (this == other) {
+            equals = true;
+        } else if ((other != null) && (getClass() == other.getClass())) {
+            final Gpu gpu = (Gpu) other;
+            equals =
+                    new EqualsBuilder()
+                            .append(this.busId, gpu.busId)
+                            .append(this.clocks, gpu.clocks)
+                            .append(this.fan, gpu.fan)
+                            .append(this.id, gpu.id)
+                            .append(this.name, gpu.name)
+                            .append(this.processes, gpu.processes)
+                            .append(this.temp, gpu.temp)
+                            .isEquals();
+        }
+        return equals;
     }
 
     /**
@@ -105,6 +129,34 @@ public class Gpu {
      */
     public int getTemp() {
         return this.temp;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.busId)
+                .append(this.fan)
+                .append(this.id)
+                .append(this.temp)
+                .append(this.clocks)
+                .append(this.name)
+                .append(this.processes)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s [ busId=%s, fan=%s, id=%s, temp=%s, clocks=%s, name=%s, " +
+                        "processes=%s ]",
+                getClass().getSimpleName(),
+                this.busId,
+                this.fan,
+                this.id,
+                this.temp,
+                this.clocks,
+                this.name,
+                this.processes);
     }
 
     /** A builder for creating new {@link Gpu GPUs}. */

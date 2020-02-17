@@ -130,6 +130,13 @@ public class NvidiaSmiService
      * @return The int value.
      */
     private static int toInt(final String value) {
-        return Integer.valueOf(value);
+        try {
+            return Integer.valueOf(value);
+        } catch (final Exception e) {
+            LOG.warn("Exception occurred while converting {} to int",
+                    value,
+                    e);
+            return 0;
+        }
     }
 }
