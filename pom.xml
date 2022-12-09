@@ -13,7 +13,7 @@
 
     <groupId>mn.foreman</groupId>
     <artifactId>foreman-chisel</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.3.0</version>
     <packaging>pom</packaging>
 
     <distributionManagement>
