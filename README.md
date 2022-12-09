@@ -2,13 +2,19 @@
 
 ## Status ##
 
-[![Build Status](https://travis-ci.com/delawr0190/foreman-chisel.svg?branch=master)](https://travis-ci.com/delawr0190/foreman-chisel)
+![Build Status](https://github.com/foremanmining/foreman-chisel/actions/workflows/workflow.yml/badge.svg)
 
 ### Chisel ###
 
-Chisel is an open-source Java application that will extract GPU-specific metrics and expose them via an HTTP API.  This application aims to provide a mechanism for supplementing some of the lackluster miner APIs that often don't expose GPU statistics, thus enabling Foreman to consistently report mining metrics across all miners.
+Chisel is an open-source Java application that will extract GPU-specific metrics
+and expose them via an HTTP API. This application aims to provide a mechanism
+for supplementing some of the lackluster miner APIs that often don't expose GPU
+statistics, thus enabling Foreman to consistently report mining metrics across
+all miners.
 
-Chisel is currently being leveraged by the Foreman integration with nvOC, HiveOS, and Linux.  It will be expanded upon, with the intention of adding support for Windows environments.
+Chisel is currently being leveraged by the Foreman integration with nvOC,
+HiveOS, and Linux. It will be expanded upon, with the intention of adding
+support for Windows environments.
 
 #### Endpoints ####
 
@@ -18,7 +24,8 @@ The following endpoints are exposed:
 /stats/gpus
 ```
 
-That endpoint returns a response formatted as follows (the statistics will be different depending on your mining configuration):
+That endpoint returns a response formatted as follows (the statistics will be
+different depending on your mining configuration):
 
 ```
 [
@@ -94,7 +101,8 @@ Upon a successful build, you should see something similar to the following:
 [INFO] ------------------------------------------------------------------------
 ```
 
-The application distributions can be found in the `target/` folders.  You'll only need one - pick the extension you prefer.
+The application distributions can be found in the `target/` folders. You'll only
+need one - pick the extension you prefer.
 
 ```sh
 $ ls -la **/target | grep -E "\.(zip|tar)"
@@ -107,4 +115,5 @@ $
 
 ## License ##
 
-Copyright © 2018, [OBM LLC](https://obm.mn/).  Released under the [GPL-3.0 License](LICENSE).
+Copyright © 2018, [OBM LLC](https://obm.mn/). Released under
+the [GPL-3.0 License](LICENSE).
