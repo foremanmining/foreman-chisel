@@ -43,6 +43,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
 
+        <artifact-registry.version>2.1.0</artifact-registry.version>
         <commons-cli.version>2.7</commons-cli.version>
         <commons-lang.version>3.9</commons-lang.version>
         <guava.version>29.0-jre</guava.version>
@@ -95,4 +96,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>com.google.cloud.artifactregistry</groupId>
+                <artifactId>artifactregistry-maven-wagon</artifactId>
+                <version>${artifact-registry.version}</version>
+            </extension>
+        </extensions>
+    </build>
 </project>
