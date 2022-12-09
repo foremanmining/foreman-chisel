@@ -1,0 +1,17 @@
+name: workflow
+
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+
+jobs:
+  workflow:
+    uses: foremanmining/workflows/.github/workflows/java.yml@main
+    with:
+      result-folder: chisel-application
+      gcs-bucket: chisel-releases
+      java: 8
+    secrets: inherit
