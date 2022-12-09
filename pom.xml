@@ -7,25 +7,27 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.3.2.RELEASE</version>
         <relativePath/>
     </parent>
 
     <groupId>mn.foreman</groupId>
     <artifactId>foreman-chisel</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <packaging>pom</packaging>
 
     <distributionManagement>
         <repository>
-            <id>central</id>
-            <name>2666cfb367e1-releases</name>
-            <url>https://artifactory.foreman.mn/artifactory/libs-release</url>
+            <id>gcp-releases</id>
+            <url>
+                artifactregistry://us-maven.pkg.dev/foreman-production/releases
+            </url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <name>2666cfb367e1-snapshots</name>
-            <url>https://artifactory.foreman.mn/artifactory/libs-snapshot</url>
+            <id>gcp-snapshots</id>
+            <url>
+                artifactregistry://us-maven.pkg.dev/foreman-production/snapshots
+            </url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -41,10 +43,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
 
-        <commons-cli.version>2.6</commons-cli.version>
+        <artifact-registry.version>2.1.0</artifact-registry.version>
+        <commons-cli.version>2.7</commons-cli.version>
         <commons-lang.version>3.9</commons-lang.version>
+        <guava.version>29.0-jre</guava.version>
+        <jackson.version>2.12.7.1</jackson.version>
         <guava.version>28.0-jre</guava.version>
-        <jackson.version>2.10.0.pr1</jackson.version>
     </properties>
 
     <dependencyManagement>
@@ -92,4 +96,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>com.google.cloud.artifactregistry</groupId>
+                <artifactId>artifactregistry-maven-wagon</artifactId>
+                <version>${artifact-registry.version}</version>
+            </extension>
+        </extensions>
+    </build>
 </project>
