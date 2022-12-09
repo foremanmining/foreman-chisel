@@ -46,7 +46,7 @@
         <commons-cli.version>2.6</commons-cli.version>
         <commons-lang.version>3.9</commons-lang.version>
         <guava.version>28.0-jre</guava.version>
-        <jackson.version>2.10.0.pr1</jackson.version>
+        <jackson.version>2.12.7.1</jackson.version>
     </properties>
 
     <dependencyManagement>
